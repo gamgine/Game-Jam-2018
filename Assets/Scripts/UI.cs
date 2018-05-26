@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 public class UI : MonoBehaviour
 {
+    public bool fight = false;
     public Entity pl, en;
     public Transform plPanel, enPanel;
     float y;

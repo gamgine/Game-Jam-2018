@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     void Start () {}
 	void Update ()
     {
-        if (GameManager.player || true)
+        if (GameManager.player)
         {
             if (Input.GetMouseButtonDown(0))//select
             {

@@ -14,8 +14,11 @@ public class Fight : MonoBehaviour {
     Entity com1;
     Entity com2;
     Image img;
-    public float time = 3.0f;
+    Animator anim;
+    Animator anim2;
+    public float time;
     public bool turn;
+    public bool end = false;
     float x;
     float y;
 
@@ -24,6 +27,7 @@ public class Fight : MonoBehaviour {
         //x = combattant1.transform.position.x;
         y = ground.position.y;
         img = transform.parent.Find("background").GetComponent<Image>();
+        
     }
 
     void Update()
@@ -42,14 +46,41 @@ public class Fight : MonoBehaviour {
 
             if (!(ground.position.y <= up && img.color.a < .55 && combattant2.transform.position.x > 250 && combattant1.transform.position.x < 70))
             {
-                time -= Time.deltaTime;
-                if (time < 0 && turn == true)
-                {
-                    int dommages = com2.def - com1.deg;
-                    Debug.Log(dommages);
-                    com2.hp -= dommages;
+                anim = combattant1.GetComponent<Animator>();
+                anim2 = combattant2.GetComponent<Animator>();
 
+                time -= Time.deltaTime;
+                if (time < 0 && end == true)
+                {
+                    anim.SetBool("attack", false);
+                    anim2.SetBool("attack", false);
+                    GameManager.fight = false;
                 }
+                
+                else if (time < 0 && turn == true)
+                {
+                    int dommages1 = com2.def - com1.deg;
+                    Debug.Log(dommages1);
+                    if (dommages1 < 0)
+                    {
+                        dommages1 *= -1;
+                    }
+                    com2.hp -= dommages1;
+                    
+                    anim.SetBool("attack", true);
+                    time = 2f;
+                    turn = false;
+                }             
+                else if (time < 0 && turn == false)
+                {
+                    int dommages2 = com1.def - com2.deg; 
+                    Debug.Log(dommages2);
+                    com1.hp -= dommages2;
+                    anim2.SetBool("attack", true);
+                    time = 2.0f;
+                    end = true;
+                }
+                
 
             }
         }

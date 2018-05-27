@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-guid: 1efe50c508695a74fa42e1663433264e
+guid: 76a41d019aad40940bbf59c84e0c2a81
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Lanver_0
-    21300002: Lanver_1
+    21300000: graphisme_0
+    21300002: graphisme_1
   externalObjects: {}
   serializedVersion: 6
   mipmaps:
@@ -86,7 +86,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Lanver_0
+      name: graphisme_0
       rect:
         serializedVersion: 2
         x: 0
@@ -100,13 +100,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 060cb5baedafbb141acc1c7534af13c7
+      spriteID: b28cff4a562cfdb4c9b4f73c47d8a3e6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lanver_1
+      name: graphisme_1
       rect:
         serializedVersion: 2
         x: 16
@@ -120,7 +120,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba54874c02a7aa34ca0352f272157c00
+      spriteID: a64236f491e51424a9000179293704c2
       vertices: []
       indices: 
       edges: []
@@ -128,7 +128,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 6261c06ffec491446a1c233900de8fb3
+    spriteID: 696823afda525a348ac49bf934b9d7fb
     vertices: []
     indices: 
     edges: []

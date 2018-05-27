@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
                         select = hit.transform.gameObject;
                         Ui.pl = select.GetComponent<Entity>();
                     }
+                    else if (select) { select = null; }//unselect
                 }
             }
             else
@@ -31,12 +32,14 @@ public class Player : MonoBehaviour
                     if (hit.transform.gameObject.tag == "Player" && !hit.transform.gameObject.GetComponent<Entity>().player)
                     {
                         Ui.en = hit.transform.GetComponent<Entity>();
-                        if (Input.GetMouseButtonDown(1)) { Debug.Log("combat"); }//action //check dist
+                        // pa for act
+                        if (Input.GetMouseButtonDown(1)) { Debug.Log("combat"); GameManager.PA = -1; }//action //check dist
                     }
                     else
                     {
                         Ui.en = null;
-                        if(Input.GetMouseButtonDown(1)) { select.GetComponent<Entity>().MvTo(hit.point); }//action
+                        // pa for act
+                        if (Input.GetMouseButtonDown(1)) { select.GetComponent<Entity>().MvTo(hit.point); GameManager.PA = -1; }//action
                     }
                 }
             }

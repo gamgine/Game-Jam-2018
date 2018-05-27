@@ -17,7 +17,7 @@ public class Fight : MonoBehaviour {
     Animator anim;
     Animator anim2;
     public float time;
-    public bool turn;
+    public bool turn=true;
     public bool end = false;
     float x;
     float y;
@@ -36,6 +36,11 @@ public class Fight : MonoBehaviour {
         {
             if (ground.position.y > y) { ground.position += new Vector3(0f, -(Time.deltaTime * upSpeed), 0f); }
             if (img.color.a > 0) { img.color += new Color(0, 0, 0, -Time.deltaTime); }
+			
+			if (combattant1&&combattant1.transform.position.y > -100) { combattant1.transform.position += new Vector3(0f, -(Time.deltaTime * upSpeed), 0f); }
+			else if(combattant1){Destroy(combattant1);}
+            if (combattant2&&combattant2.transform.position.y > -100) { combattant2.transform.position += new Vector3(0f,-(Time.deltaTime * upSpeed), 0f); }
+			else if(combattant2){Destroy(combattant2);}
         }
         else
         {
@@ -54,28 +59,25 @@ public class Fight : MonoBehaviour {
                 {
                     anim.SetBool("attack", false);
                     anim2.SetBool("attack", false);
+					turn=true;
+					time = 3;
+					end = false;
                     GameManager.fight = false;
                 }
-                
-                else if (time < 0 && turn == true)
+                else if (time < 0 && turn == true) //nop here
                 {
-                    int dommages1 = com2.def - com1.deg;
-                    Debug.Log(dommages1);
-                    if (dommages1 < 0)
-                    {
-                        dommages1 *= -1;
-                    }
-                    com2.hp -= dommages1;
-                    
+                    int dommages = com2.def - com1.deg;
+					Debug.Log("dm1 "+dommages);
+                    com2.Damages(dommages);
                     anim.SetBool("attack", true);
                     time = 2f;
                     turn = false;
                 }             
                 else if (time < 0 && turn == false)
                 {
-                    int dommages2 = com1.def - com2.deg; 
-                    Debug.Log(dommages2);
-                    com1.hp -= dommages2;
+                    int dommages = com1.def - com2.deg; 
+                    Debug.Log("dm2 "+dommages);
+                    com1.Damages(dommages);
                     anim2.SetBool("attack", true);
                     time = 2.0f;
                     end = true;

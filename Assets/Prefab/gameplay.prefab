@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1823756270670892}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.07, y: 0.83, z: 0}
+  m_LocalPosition: {x: -3.1440659, y: -0.026141375, z: -0.8780068}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 4898754187454210}
@@ -113,8 +113,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 10
-  deg: 33
-  def: 33
+  deg: 50
+  def: 10
   sprite: {fileID: 1089286642982732, guid: d23c4c2d855ab52428d48a6d4e62a632, type: 2}
   player: 0
   MvRange: 5

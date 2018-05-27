@@ -9,7 +9,7 @@ public class ArtificialShitIntelligence : MonoBehaviour
     {
         if(!GameManager.player)
         {
-            if (time > 5)
+            if (time > 2)
             {
                 foreach (GameObject el in GameObject.FindGameObjectsWithTag("Player"))
                 {

@@ -66,7 +66,8 @@ public class Fight : MonoBehaviour {
                 }
                 else if (time < 0 && turn == true) //nop here
                 {
-                    int dommages = com2.def - com1.deg;
+                    int dommages = com1.deg - com2.def;
+                    if (dommages < 0) { dommages = 0; }
 					Debug.Log("dm1 "+dommages);
                     com2.Damages(dommages);
                     anim.SetBool("attack", true);
@@ -75,7 +76,8 @@ public class Fight : MonoBehaviour {
                 }             
                 else if (time < 0 && turn == false)
                 {
-                    int dommages = com1.def - com2.deg; 
+                    int dommages = com2.deg - com1.def;
+                    if (dommages < 0) { dommages = 0; }
                     Debug.Log("dm2 "+dommages);
                     com1.Damages(dommages);
                     anim2.SetBool("attack", true);

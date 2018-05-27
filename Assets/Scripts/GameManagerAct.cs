@@ -10,6 +10,6 @@ public static class GameManager
 }
 public class GameManagerAct : MonoBehaviour
 {
-    void Update(){ if (GameManager.PA <= 0) { GameManager.player = !GameManager.player; GameManager.PA = 10; } }
+    void Update(){ if (GameManager.PA <= 1) { this.Next(); } }
     public void Next() { GameManager.player = !GameManager.player; GameManager.PA = 10; }
 }

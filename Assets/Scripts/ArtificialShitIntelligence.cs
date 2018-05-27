@@ -3,22 +3,28 @@ using System.Collections;
 
 public class ArtificialShitIntelligence : MonoBehaviour
 {
-    void Start(){}
+    public GameObject combatsys;
+    float time;
     void Update()
     {
         if(!GameManager.player)
         {
-            foreach (Entity el in GetComponents<Entity>())
+            if (time > 5)
             {
-                if (el.player || GameManager.PA<=0) { continue; }//not ia not play or not plai if no pa
-                foreach (Entity trig in el.triger)
+                foreach (GameObject el in GameObject.FindGameObjectsWithTag("Player"))
                 {
-                    if (!trig.player) { continue; }//not att ia
-                    Camera.main.GetComponent<Fight>().StartFight(el, trig);
-                    GameManager.PA -= 1;
+                    Entity elE = el.GetComponent<Entity>();
+                    if (elE.player || GameManager.PA <= 0) { continue; }//not ia not play or not plai if no pa
+                    foreach (Entity trig in elE.triger)
+                    {
+                        if (!trig.player) { continue; }//not att ia
+                        combatsys.GetComponent<Fight>().StartFight(elE, trig);
+                        GameManager.PA -= 1;
+                    }
                 }
+                Camera.main.GetComponent<GameManagerAct>().Next();
             }
-            Camera.main.GetComponent<GameManagerAct>().Next();
+            time += Time.deltaTime;
         }
     }
 }

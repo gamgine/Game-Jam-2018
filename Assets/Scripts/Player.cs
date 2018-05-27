@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     public UI Ui;
     public GameObject select;
+    public GameObject combatsys;
     void Start () {}
 	void Update ()
     {
@@ -33,7 +34,7 @@ public class Player : MonoBehaviour
                     {
                         Ui.en = hit.transform.GetComponent<Entity>();
                         // pa for act
-                        if (Input.GetMouseButtonDown(1)) { Debug.Log("combat"); GameManager.PA -=1; }//action //check dist
+                        if (Input.GetMouseButtonDown(1)) { combatsys.GetComponent<Fight>().StartFight(select.GetComponent<Entity>(), Ui.en); GameManager.PA -=1; }//action //check dist
                     }
                     else
                     {

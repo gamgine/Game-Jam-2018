@@ -10,6 +10,7 @@ public class UI : MonoBehaviour
     float y;
     public Image[] PA;
     public Sprite[] PASrc;
+    public Text playerR;
     void Start()
     {
         y = plPanel.position.y;
@@ -18,6 +19,7 @@ public class UI : MonoBehaviour
 
     void Update()
     {
+        playerR.text = (GameManager.player) ? "joueur" : "IA";
         if (!pl)
         { if (plPanel.position.y < y )     { plPanel.position += new Vector3(0f, (Time.deltaTime * dropSpeed), 0f ); } }
         else

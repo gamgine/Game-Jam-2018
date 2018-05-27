@@ -9,6 +9,8 @@ public class UI : MonoBehaviour
     float y;
     public float drop;
     public float dropSpeed;
+    public Image[] PA;
+    public Sprite[] PASrc;
     void Start()
     {
         y = plPanel.position.y;
@@ -36,5 +38,7 @@ public class UI : MonoBehaviour
             enPanel.Find("StatsAlly2").GetComponent<Text>().text = en.def.ToString();
             enPanel.Find("StatsAlly3").GetComponent<Text>().text = en.deg.ToString();
         }
+        for (int i = 0; i < PA.Length; i ++) { PA[i].sprite = (i < GameManager.PA) ? PASrc[0]:PASrc[2]; }
+    
     }
 }

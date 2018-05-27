@@ -31,7 +31,7 @@ public class Combat : MonoBehaviour {
         }
         else
         {
-            if (ground.position.y <= 82) { ground.position += new Vector3(0f, (Time.deltaTime * upSpeed), 0f); }
+            if (ground.position.y <= up) { ground.position += new Vector3(0f, (Time.deltaTime * upSpeed), 0f); }
             if (img.color.a < .55) { img.color += new Color(0, 0, 0, Time.deltaTime ); }
         }
 

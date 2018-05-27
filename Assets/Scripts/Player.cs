@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
             if (Input.GetMouseButtonDown(0))//select
             {
                 RaycastHit hit;
-                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity))
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, LayerMask.GetMask("Default"), QueryTriggerInteraction.Ignore))
                 {
                     if (!select && hit.transform.gameObject.tag == "Player" && hit.transform.gameObject.GetComponent<Entity>().player)
                     {
@@ -28,19 +28,20 @@ public class Player : MonoBehaviour
             else
             {
                 RaycastHit hit;
-                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity))
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, LayerMask.GetMask("Default"), QueryTriggerInteraction.Ignore))
                 {
                     if (hit.transform.gameObject.tag == "Player" && !hit.transform.gameObject.GetComponent<Entity>().player)
                     {
                         Ui.en = hit.transform.GetComponent<Entity>();
-                        // pa for act
-                        if (Input.GetMouseButtonDown(1)) { combatsys.GetComponent<Fight>().StartFight(select.GetComponent<Entity>(), Ui.en); GameManager.PA -=1; }//action //check dist
+                        if (Input.GetMouseButtonDown(1) && Vector3.Distance(select.transform.position, hit.transform.position)<= Ui.en.shootRange)// in range & m1
+                        { combatsys.GetComponent<Fight>().StartFight(Ui.en,select.GetComponent<Entity>()); GameManager.PA -=1; }//att 
+                        else if (Input.GetMouseButtonDown(1) && select) { select.GetComponent<Entity>().MvTo(hit.point); GameManager.PA -= 3; }//mv
                     }
                     else
                     {
                         Ui.en = null;
                         // pa for act
-                        if (Input.GetMouseButtonDown(1)) { select.GetComponent<Entity>().MvTo(hit.point); GameManager.PA -=1; }//action
+                        if (Input.GetMouseButtonDown(1) && select) { select.GetComponent<Entity>().MvTo(hit.point); GameManager.PA -=3; }//action
                     }
                 }
             }

@@ -14,6 +14,8 @@ public class Fight : MonoBehaviour {
     Entity com1;
     Entity com2;
     Image img;
+    public float time = 3.0f;
+    public bool turn;
     float x;
     float y;
 
@@ -40,7 +42,15 @@ public class Fight : MonoBehaviour {
 
             if(!(ground.position.y <= up && img.color.a < .55 && combattant2.transform.position.x > 250 && combattant1.transform.position.x < 70))
             {
-               Debug.Log("fight");
+                time -= Time.deltaTime;
+                if (time < 0 && turn == true)
+                {
+                    int dommages = com2.def - com1.deg;
+                    Debug.Log(dommages);
+                    com2.hp -= dommages;
+
+                }
+
             }
         }
 

@@ -113,13 +113,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 10
-  deg: 33
-  def: 33
+  deg: 50
+  def: 10
   sprite: {fileID: 1591688441362184, guid: 171d192ceb7a61049aaa58be5f4de40a, type: 2}
-  player: 1
+  player: 0
   MvRange: 5
-  shootRange: 33
-  minShoot: 33
+  shootRange: 50
+  minShoot: 10
   triger: []
 --- !u!135 &135677687070494250
 SphereCollider:

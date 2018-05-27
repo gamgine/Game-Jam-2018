@@ -3,12 +3,11 @@ using System.Collections;
 using UnityEngine.UI;
 public class UI : MonoBehaviour
 {
-    public bool fight = false;
     public Entity pl, en;
     public Transform plPanel, enPanel;
-    float y;
     public float drop;
     public float dropSpeed;
+    float y;
     public Image[] PA;
     public Sprite[] PASrc;
     void Start()
@@ -39,6 +38,5 @@ public class UI : MonoBehaviour
             enPanel.Find("StatsAlly3").GetComponent<Text>().text = en.deg.ToString();
         }
         for (int i = 0; i < PA.Length; i ++) { PA[i].sprite = (i < GameManager.PA) ? PASrc[0]:PASrc[2]; }
-    
     }
 }

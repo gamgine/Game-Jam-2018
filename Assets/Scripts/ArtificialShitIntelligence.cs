@@ -14,8 +14,7 @@ public class ArtificialShitIntelligence : MonoBehaviour
                 foreach (Entity trig in el.triger)
                 {
                     if (!trig.player) { continue; }//not att ia
-                    Camera.main.GetComponent<Fight>().att = el;
-                    Camera.main.GetComponent<Fight>().def = trig;
+                    Camera.main.GetComponent<Fight>().StartFight(el, trig);
                     GameManager.PA -= 1;
                 }
             }

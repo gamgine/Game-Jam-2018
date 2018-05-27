@@ -118,8 +118,8 @@ MonoBehaviour:
   sprite: {fileID: 1591688441362184, guid: 171d192ceb7a61049aaa58be5f4de40a, type: 2}
   player: 0
   MvRange: 5
-  shootRange: 50
-  minShoot: 10
+  shootRange: 5
+  minShoot: 5
   triger: []
 --- !u!135 &135677687070494250
 SphereCollider:

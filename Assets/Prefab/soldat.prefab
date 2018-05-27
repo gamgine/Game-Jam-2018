@@ -112,14 +112,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42799f9f23d362149a0b3f5a9c179a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 260
+  hp: 10
   deg: 70
   def: 10
   sprite: {fileID: 1825843401681966, guid: 2e4e591fa794f24469594b35d8aeffc9, type: 2}
   player: 0
   MvRange: 5
-  shootRange: 50
-  minShoot: 10
+  shootRange: 5
+  minShoot: 5
   triger: []
 --- !u!135 &135561708793341194
 SphereCollider:
